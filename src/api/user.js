@@ -1,5 +1,4 @@
-import request from '@/utils/request'
-import { get,post } from '@/utils/request';
+import { post } from '@/utils/request';
 export function login(data) {
   return post({
     url: '/admin/login',
@@ -8,16 +7,14 @@ export function login(data) {
 }
 
 export function getInfo(token) {
-  return request({
+  return post({
     url: '/user/info',
-    method: 'get',
-    params: { token }
+    data: { token }
   })
 }
 
 export function logout() {
-  return request({
+  return post({
     url: '/admin/logout',
-    method: 'post'
   })
 }
