@@ -49,7 +49,7 @@ export const constantRoutes = [
     redirect: '/dashboard',
     children: [{
       path: 'dashboard',
-      name: '数据看板',
+      name: 'dashboard',
       component: () => import('@/views/dashboard/index'),
       meta: { title: '数据看板', icon: 'dashboard' }
     }]
@@ -66,10 +66,15 @@ export const constantRoutes = [
         component: () => import('@/views/admin/goods/index'),
         meta: { title: '商品管理', icon: 'table' }
       }, {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: '利润核算', icon: 'tree' }
+        path: 'sales',
+        name: 'sales',
+        component: () => import('@/views/admin/goods/sales'),
+        meta: { title: '日销量统计', icon: 'tree' }
+      },{
+        path: 'cost',
+        name: 'cost',
+        component: () => import('@/views/admin/goods/cost'),
+        meta: { title: '成本管理', icon: 'tree' }
       }
     ]
   },

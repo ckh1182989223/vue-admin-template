@@ -43,10 +43,7 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
 
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
-      </div>
+
 
     </el-form>
   </div>
@@ -66,8 +63,8 @@ export default {
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
+      if (value.length === 0) {
+        callback(new Error('请输入密码'))
       } else {
         callback()
       }
@@ -110,7 +107,6 @@ export default {
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
-            console.log("1111");
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {
